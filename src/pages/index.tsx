@@ -1,23 +1,23 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import  Audioplayer from '../components/Audioplayer'
+import Audioplayer from '../components/Audioplayer'
 import Button from '../components/Button'
-import Inputform from '../components/Inputform'
 import Newspaper from '../components/Newspaper'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-
 import { useState } from 'react';
 
-import Propstest from '../components/Propstest'
 
 const inter = Inter({ subsets: ['latin'] })
 
-interface Data {
+interface Data  {
   message: string;
   s3: string;
-  newsArray?: string[];
   hunterText: string;
+}
+
+interface NewsData extends Data {
+  newsArray: string[];
 }
 
 export default function Home() {
@@ -25,9 +25,9 @@ export default function Home() {
   const [text, setText] = useState<string>('');
   const [s3Url, setS3Url] = useState<string>('');
   //eventuall get rid of imageUrl
-  const [imageUrl, setImageUrl] = useState('');
-  const [article, setArticle] = useState<string[] | undefined>([]);
-  const [newsDate, setNewsDate] = useState("");
+  // const [imageUrl, setImageUrl] = useState('');
+  const [article, setArticle] = useState<string[]>([]);
+  // const [newsDate, setNewsDate] = useState("");
 
   const [hunterText, setHunterText] = useState<string>('');
 
@@ -44,12 +44,13 @@ export default function Home() {
       const data: Data = await res.json();
       const s3: string = data.s3;
       const hunterTextResponse: string = data.hunterText;
-      const article: string[] | undefined = data.newsArray;
+      // const article: string[] | undefined = data.newsArray;
       setHunterText(hunterTextResponse);
       setS3Url(s3); 
-      setArticle(article);
-      console.log(setS3Url);
-      console.log(s3Url);
+      setArticle([])
+      // setArticle(article);
+      // console.log(setS3Url);
+      // console.log(s3Url);
     }
     catch(err) {
       console.log(err);
@@ -57,14 +58,17 @@ export default function Home() {
    
   }
   const handleNewsButtonClick = async () => {
-    const res = await fetch('http://localhost:8000/exchanges/getthenews');
-    const data: Data = await res.json();
+    const res = await fetch('http://localhost:8000/exchanges/getthenews/');
+    const data: NewsData = await res.json();
+    // console.log(data);
     const s3: string = data.s3;
     const hunterTextResponse: string = data.hunterText;
+    const news: string[]= data.newsArray;
+    setArticle(news);
     setHunterText(hunterTextResponse);
     setS3Url(s3); 
-    console.log(setS3Url);
-    console.log(s3Url);
+    // console.log(setS3Url);
+    // console.log(s3Url);
   }
 
   return (
@@ -90,7 +94,7 @@ export default function Home() {
           {/* We might want to change to using ref or adding a debouncer here... */}
           {/* Might also need to prevent default */}
           {/* <div>{received ? received : 'nothing yet'}</div> */}
-          <Propstest url={s3Url}/>
+          {/* <Propstest url={s3Url}/> */}
           <input type="text" value={text} onChange={event => setText(event.target.value)}/>
           <Button handleButtonClick={handleChatButtonClick} type={'Chat'}/>
           <Button handleButtonClick={handleNewsButtonClick}type={'News'}/>

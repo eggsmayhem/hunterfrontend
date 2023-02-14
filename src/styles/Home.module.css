@@ -282,13 +282,13 @@
   text-align: center;
 }
 
-.black {
+/* .black {
   display: flex;
   flex-direction: column;
   align-items: center;
   spacing: flex-around;
   gap: 20px;
-}
+} */
 
 .buttons {
   display: flex;
@@ -361,6 +361,10 @@ and (max-device-width : 480px) {
 /********************************** 
 Newspaper details
 *********************************/
+
+.h1news, .h2news, .h3news, .pnews,.h4news, .title {
+  color: black;
+}
 .h1news, .h3news {
   display: inline-block;
 }

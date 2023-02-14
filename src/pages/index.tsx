@@ -34,7 +34,7 @@ export default function Home() {
   //does below function need to be async
   const handleChatButtonClick = async () => {
     try {
-      const res = await fetch('http://localhost:8000/exchanges/speaktohunter', {
+      const res = await fetch('https://hunterbot-api.onrender.com/exchanges/speaktohunter', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export default function Home() {
    
   }
   const handleNewsButtonClick = async () => {
-    const res = await fetch('http://localhost:8000/exchanges/getthenews/');
+    const res = await fetch('https://hunterbot-api.onrender.com/exchanges/getthenews');
     const data: NewsData = await res.json();
     // console.log(data);
     const s3: string = data.s3;

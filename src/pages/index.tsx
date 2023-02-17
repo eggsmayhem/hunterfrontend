@@ -70,6 +70,7 @@ export default function Home() {
       setHunterText(hunterTextResponse);
       setS3Url(s3); 
       const aud = new Audio(s3);
+      aud.addEventListener('canplaythrough', () => {});
       await aud.play();
 
       // This is where I need

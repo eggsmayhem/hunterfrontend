@@ -17,7 +17,7 @@ function Newspaper({newsArray}: NewsProps) {
                         <h3 className={styles.h3news}>Rainy Cold</h3>  <h1 className={styles.h1news}>News for Humans</h1> <h3 className={styles.h3news}>6 A.M. Extra </h3>
                     </div>
                     <hr/>
-                    <h4 className={styles.h4news}><span>Vol XVI</span><span>$1.00</span></h4>
+                    <h4 className={styles.h4news}><span>Vol XVI</span><span>$3.50</span></h4>
                     <hr/>
                     <h2 className={styles.h2news}>{newsArray && newsArray[0]}</h2>
                     <p className={styles.pnews}>{newsArray && newsArray[1]}</p>

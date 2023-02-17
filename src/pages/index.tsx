@@ -80,7 +80,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-         
+        <h1>Hunterbot</h1>
           <Image
             className={styles.logo}
             src="/hunterbotdallenobg2.png"
@@ -90,16 +90,15 @@ export default function Home() {
             priority
           />
           { s3Url && <Audioplayer key={s3Url} sound={s3Url}/>}
-          {/* <div>fake audio player + {s3Url? s3Url : ""}</div> */}
-          {/* We might want to change to using ref or adding a debouncer here... */}
-          {/* Might also need to prevent default */}
-          {/* <div>{received ? received : 'nothing yet'}</div> */}
-          {/* <Propstest url={s3Url}/> */}
-          <input type="text" value={text} onChange={event => setText(event.target.value)}/>
-          <Button handleButtonClick={handleChatButtonClick} type={'Chat'}/>
-          <Button handleButtonClick={handleNewsButtonClick}type={'News'}/>
+          {/* <p>{hunterText}</p> */}
+         
+          <textarea autoFocus value={text} rows={4} placeholder="Type a message and click 'Chat' or click 'News' to hear Hunter's take on a headline..."className={styles.textBox} onChange={event => setText(event.target.value)}/>
+          <div className={styles.buttonContainer}>
+            <Button handleButtonClick={handleChatButtonClick} type={'Chat'}/>
+            <Button handleButtonClick={handleNewsButtonClick}type={'News'}/>
+          </div>
           <Newspaper newsArray={article}/>
-      
+         
       </main>
     </>
   )

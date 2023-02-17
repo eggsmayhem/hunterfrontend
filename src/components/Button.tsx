@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styles from '@/styles/Home.module.css'
 // import Button from '@mui/material/Button';
 
 // export default function BasicButtons({title, handleAction}) {
@@ -13,6 +14,6 @@ interface Props {
 }
 export default function BasicButtons({handleButtonClick, type}: Props) {
     return (
-        <div onClick={handleButtonClick}>{type}</div>
+        <div onClick={handleButtonClick} className={styles.button}>{type}</div>
     );
 }

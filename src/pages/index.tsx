@@ -69,6 +69,8 @@ export default function Home() {
       // const article: string[] | undefined = data.newsArray;
       setHunterText(hunterTextResponse);
       setS3Url(s3); 
+      const aud = new Audio(s3);
+      await aud.play();
 
       // This is where I need
       //may need to load first? 
@@ -96,6 +98,8 @@ export default function Home() {
     setArticle(news);
     setHunterText(hunterTextResponse);
     setS3Url(s3); 
+    const aud = new Audio(s3);
+    await aud.play();
     // console.log(setS3Url);
     // console.log(s3Url);
   }
@@ -118,7 +122,7 @@ export default function Home() {
             height={37}
             priority
           />
-          { s3Url && <Audioplayer key={s3Url} sound={s3Url} audioReference={audioRef}/>}
+          {/* { s3Url && <Audioplayer key={s3Url} sound={s3Url} audioReference={audioRef}/>} */}
           {/* <p>{hunterText}</p> */}
          
           <textarea autoFocus value={text} rows={4} placeholder="Type a message and click 'Chat' or click 'News' to hear Hunter's take on a headline..."className={styles.textBox} onChange={event => setText(event.target.value)}/>

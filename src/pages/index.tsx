@@ -70,8 +70,10 @@ export default function Home() {
       setHunterText(hunterTextResponse);
       setS3Url(s3); 
       const aud = new Audio(s3);
-      aud.addEventListener('canplaythrough', () => {});
-      await aud.play();
+      aud.load();
+      aud.addEventListener('canplaythrough', () => {
+        aud.play();
+      });
 
       // This is where I need
       //may need to load first? 

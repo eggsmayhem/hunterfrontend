@@ -6,6 +6,7 @@ import Newspaper from '../components/Newspaper'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useState, useRef } from 'react';
+import { Howl, Howler } from 'howler';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -69,11 +70,20 @@ export default function Home() {
       // const article: string[] | undefined = data.newsArray;
       setHunterText(hunterTextResponse);
       setS3Url(s3); 
-      const aud = new Audio(s3);
-      aud.load();
-      aud.addEventListener('canplaythrough', () => {
-        aud.play();
+
+      const aud: Howl = new Howl({
+        src: [s3],
       });
+      aud.once('unlock', () => {
+        aud.play();
+      })
+      aud.play();
+
+      // const aud = new Audio(s3);
+      // aud.load();
+      // aud.addEventListener('canplaythrough', () => {
+      //   aud.play();
+      // });
 
       // This is where I need
       //may need to load first? 

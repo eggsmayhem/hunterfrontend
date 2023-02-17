@@ -5,7 +5,7 @@ import Button from '../components/Button'
 import Newspaper from '../components/Newspaper'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -31,6 +31,28 @@ export default function Home() {
 
   const [hunterText, setHunterText] = useState<string>('');
 
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  // audio ref function to allow frequent audio load and play on mobile browser without loading too much into device memory 
+
+  // const handleAudioRef = () => {
+  //   if (audioRef.current) {
+  //     audioRef.current.load();
+  //     audioRef.current.play();
+  //   }
+  // }
+
+  // const handleAudioRef = () => {
+  //   if (isPlaying) {
+  //     audioRef.current?.pause();
+  //     setIsPlaying(false);
+  //   }
+  //   else {
+  //     audioRef.current.play();
+  //     setIsPlaying(true)
+  //   }
+  // }
+
   //does below function need to be async
   const handleChatButtonClick = async () => {
     try {
@@ -47,6 +69,13 @@ export default function Home() {
       // const article: string[] | undefined = data.newsArray;
       setHunterText(hunterTextResponse);
       setS3Url(s3); 
+
+      // This is where I need
+      //may need to load first? 
+      // if (audioRef.current) {
+      //       audioRef.current.load();
+      //       audioRef.current.play();
+      //     }
       setArticle([])
       // setArticle(article);
       // console.log(setS3Url);
@@ -89,7 +118,7 @@ export default function Home() {
             height={37}
             priority
           />
-          { s3Url && <Audioplayer key={s3Url} sound={s3Url}/>}
+          { s3Url && <Audioplayer key={s3Url} sound={s3Url} audioReference={audioRef}/>}
           {/* <p>{hunterText}</p> */}
          
           <textarea autoFocus value={text} rows={4} placeholder="Type a message and click 'Chat' or click 'News' to hear Hunter's take on a headline..."className={styles.textBox} onChange={event => setText(event.target.value)}/>

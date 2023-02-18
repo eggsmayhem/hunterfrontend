@@ -70,13 +70,15 @@ export default function Home() {
       // const article: string[] | undefined = data.newsArray;
       setHunterText(hunterTextResponse);
       setS3Url(s3); 
-
+      //html5 fallback could help with CORS errors I was randomly getting
       const aud: Howl = new Howl({
-        src: [s3],
+        src: [s3Url],
+        // preload: false,
+        html5: true,
       });
       aud.once('unlock', () => {
         aud.play();
-      })
+      });
       aud.play();
 
       // const aud = new Audio(s3);

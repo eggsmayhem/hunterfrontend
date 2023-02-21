@@ -80,7 +80,8 @@ export default function Home() {
         aud.play();
       });
       aud.play();
-
+      //was sometimes playing sound of old URL, try resetting to avoid
+      setS3Url('');
       // const aud = new Audio(s3);
       // aud.load();
       // aud.addEventListener('canplaythrough', () => {
@@ -113,10 +114,19 @@ export default function Home() {
     setArticle(news);
     setHunterText(hunterTextResponse);
     setS3Url(s3); 
-    const aud = new Audio(s3);
-    await aud.play();
+    // const aud = new Audio(s3);
+    // await aud.play();
     // console.log(setS3Url);
     // console.log(s3Url);
+    const aud: Howl = new Howl({
+      src: [s3Url],
+      // preload: false,
+      html5: true,
+    });
+    aud.once('unlock', () => {
+      aud.play();
+    });
+    aud.play();
   }
 
   return (

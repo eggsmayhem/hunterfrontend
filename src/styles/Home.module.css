@@ -52,9 +52,26 @@
   cursor: pointer;
 }
 
-.button:hover {
-  background-color: #4CAF50; 
+@media (min-width: 768px) {
+  .button:hover {
+    background-color: #8bc34a; /* green */
+  }
 }
+
+/* Button click styles for desktop */
+@media (min-width: 768px) {
+  .button:active {
+    background-color: #ff9800; /* orange */
+  }
+}
+
+/* Button click styles for mobile */
+@media (max-width: 767px) {
+  .button:active {
+    background-color: #8bc34a; /* green */
+  }
+}
+
 
 .audioplayer {
   visibility: hidden;

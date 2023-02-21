@@ -9,7 +9,7 @@ function Newspaper({newsArray}: NewsProps) {
         return null
     }
     return (
-        <div className={styles.container}>
+        <div className={styles.container} key={newsArray[0]}>
         <div className={styles.wrapper}>
             <div className={styles.sizeIn}>
                 <div className={styles.newspaper}>

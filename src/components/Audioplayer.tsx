@@ -50,6 +50,6 @@ export default function HowlAudio({audio}: AudioProps) {
             aud.play();
     }, [audio]);
     return (
-        <div>HowlAudio</div>
+        <div>buy the ticket take the ride</div>
     )
 }

@@ -3,14 +3,6 @@ import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import { ColorRing } from 'react-loader-spinner';
 
-// import Button from '@mui/material/Button';
-
-// export default function BasicButtons({title, handleAction}) {
-//     return (
-//         <Button variant="contained" onClick={handleAction}>{title}</Button>
-//     );
-// }
-
 interface Props {
     handleButtonClick: () => void;
     type: string;
@@ -22,7 +14,6 @@ export default function BasicButtons({handleButtonClick, type}: Props) {
        const fetchLoading = async () => {
            try {
                const res = await fetch('https://hunterbot-api.onrender.com/exchanges/');
-            // const res = await fetch('http://localhost:8000/exchanges/');
                setIsLoading(false);
            } catch (error) {
                console.log(error);

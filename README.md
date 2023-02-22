@@ -1,4 +1,7 @@
 # Hunterbot
+[visit deployed site](https://github.com/eggsmayhem/hunterfrontend/blob/main/public/hunterbotdallenobg2.png)
+
+!['hunterbot](https://github.com/eggsmayhem/hunterfrontend/blob/main/public/hunterbotdallenobg2.png)'
 
 This is a simple talking bot made with React/NextJS using GPT-3 prompting. The bot "reads the news" through an API call. The newspaper animation is acheieved through basic CSS. 
 

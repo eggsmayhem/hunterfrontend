@@ -30,6 +30,7 @@ export default function Home() {
   const handleChatButtonClick = async () => {
     try {
       const res = await fetch('https://hunterbot-api.onrender.com/exchanges/speaktohunter', {
+        // const res = await fetch('https//localhost:8000/exchanges/speaktohunter', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,6 +52,7 @@ export default function Home() {
   }
   const handleNewsButtonClick = async () => {
     const res = await fetch('https://hunterbot-api.onrender.com/exchanges/getthenews');
+    // const res = await fetch('http://localhost:8000/exchanges/getthenews');
     const data: NewsData = await res.json();
     const s3: string = data.s3;
     const hunterTextResponse: string = data.hunterText;
@@ -79,7 +81,7 @@ export default function Home() {
             height={37}
             priority
           />
-         
+         <div className={styles.hunterText}>{hunterText}</div>
           <textarea autoFocus value={text} rows={4} placeholder="Type a message and click 'Chat' or click 'News' to hear Hunter's take on a headline (may take a minute to load backend before first question)..."className={styles.textBox} onChange={event => setText(event.target.value)}/>
           <div className={styles.buttonContainer}>
             <Button handleButtonClick={handleChatButtonClick} type={'Chat'}/>

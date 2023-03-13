@@ -82,7 +82,8 @@ export default function Home() {
             priority
           />
          <div className={styles.hunterText}>{hunterText}</div>
-          <textarea autoFocus value={text} rows={4} placeholder="Type a message and click 'Chat' or click 'News' to hear Hunter's take on a headline (may take a minute to load backend before first question)..."className={styles.textBox} onChange={event => setText(event.target.value)}/>
+         <label htmlFor="text-submit">Enter text</label>
+          <textarea value={text} rows={4} placeholder="Type a message and click 'Chat' or click 'News' to hear Hunter's take on a headline (may take a minute to load backend before first question)..."className={styles.textBox} onChange={event => setText(event.target.value)} id="text-submit" tabIndex={0}/>
           <div className={styles.buttonContainer}>
             <Button handleButtonClick={handleChatButtonClick} label={'Chat'}/>
             <Button handleButtonClick={handleNewsButtonClick} label={'News'}/>

@@ -30,6 +30,12 @@
   outline: none;
 }
 
+.textBox:focus {
+  border: 3px solid #555;
+  outline: none;
+  box-shadow: 0 0 0 2px #2684FF;
+}
+
 /* button container */
 .buttonContainer {
   display: flex;

@@ -84,8 +84,8 @@ export default function Home() {
          <div className={styles.hunterText}>{hunterText}</div>
           <textarea autoFocus value={text} rows={4} placeholder="Type a message and click 'Chat' or click 'News' to hear Hunter's take on a headline (may take a minute to load backend before first question)..."className={styles.textBox} onChange={event => setText(event.target.value)}/>
           <div className={styles.buttonContainer}>
-            <Button handleButtonClick={handleChatButtonClick} type={'Chat'}/>
-            <Button handleButtonClick={handleNewsButtonClick}type={'News'}/>
+            <Button handleButtonClick={handleChatButtonClick} label={'Chat'}/>
+            <Button handleButtonClick={handleNewsButtonClick} label={'News'}/>
           </div>
           <Audioplayer audio={s3Url}/>
           <Newspaper newsArray={article}/>

@@ -7,7 +7,6 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useState } from 'react';
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 interface Data  {
@@ -63,6 +62,8 @@ export default function Home() {
 
   }
 
+
+
   return (
     <>
       <Head>
@@ -72,6 +73,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+  
+          <a href="https://ko-fi.com/eggsmayhem" className={styles.kofiButton}>Help me keep the lights on</a>
+
         <h1>Hunterbot</h1>
           <Image
             className={styles.logo}

@@ -218,3 +218,10 @@ Add animations here
   width: 70%;
   text-align: center;
 }
+
+.kofiButton {
+  background-color: rgb(196, 93, 10);
+  padding: 5px;
+  border-radius: 5px;
+  align-self: left;
+}
